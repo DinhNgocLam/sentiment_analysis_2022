@@ -40,6 +40,7 @@ models_6 = pd.read_csv(zf.open('models_6.csv'))
 models_6 = models_6.sort_values(by=['Test Score'], ascending=False)
 
 df_resample = pd.read_csv(zf.open('df_resample.csv'))
+df_resample = df_resample.drop('Unnamed: 0', axis=1)
 df_new = df_resample.sample(frac= 0.5)
 X_res = df_new.drop('group', axis=1)
 y_res = df_new['group']
