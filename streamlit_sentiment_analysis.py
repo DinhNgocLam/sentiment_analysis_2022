@@ -11,7 +11,7 @@ from sklearn import metrics
 import seaborn as sns
 import zipfile
 from zipfile import ZipFile
-from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.tree import ExtraTreeClassifier
 
 zf = zipfile.ZipFile('sentiment_analysis.zip')
 
