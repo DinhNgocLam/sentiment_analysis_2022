@@ -40,6 +40,7 @@ models_6 = pd.read_csv(zf.open('models_6.csv'))
 models_6 = models_6.sort_values(by=['Test Score'], ascending=False)
 
 df_new = pd.read_csv(zf.open('df_new.csv'))
+df_new = df_new.drop('Unnamed: 0', axis=1)
 X_res = df_new.drop('group', axis=1)
 y_res = df_new['group']
 X_train, X_test, y_train, y_test = train_test_split(X_res, y_res, test_size=0.3, random_state=42)
