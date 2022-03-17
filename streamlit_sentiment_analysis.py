@@ -13,8 +13,7 @@ import zipfile
 from zipfile import ZipFile
 from sklearn.ensemble import ExtraTreesClassifier
 
-zf = zipfile.ZipFile('D:\LDS0\Week 3\sentiment_analysis.zip')
-# zf1 = zipfile.ZipFile('D:\LDS0\Week 3\pickle_file.zip')
+zf = zipfile.ZipFile('sentiment_analysis.zip')
 
 df_self = pd.read_csv(zf.open('data_Foody_HCM_Q13510.csv'))
 df_self = df_self.drop(['Unnamed: 0', 'location', 'url'], axis=1)
