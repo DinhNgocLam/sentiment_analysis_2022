@@ -45,8 +45,8 @@ df_new = df_resample.sample(frac= 0.5)
 X_res = df_new.drop('group', axis=1)
 y_res = df_new['group']
 X_train, X_test, y_train, y_test = train_test_split(X_res, y_res, test_size=0.3, random_state=42)
-trees = ExtraTreesClassifier(criterion='entropy', max_features='log2')
-trees.fit(X_train, y_train)
+tree = ExtraTreeClassifier(criterion='entropy', max_features='sqrt', splitter='random')
+tree.fit(X_train, y_train)
 
 # pkl_filename = "sentiment_classification_1.pkl"  
 # with open(pkl_filename, 'wb') as file:  
@@ -174,5 +174,5 @@ elif choice == 'New Prediction':
         if len(lines) > 0:
             st.code(lines)
             x_new = tfidf_model.transform(lines)
-            y_pred_new  = trees.predict(x_new)
+            y_pred_new  = tree.predict(x_new)
             st.code('New prediction (0: Negative, 1: Positive): ' + str(y_pred_new))
