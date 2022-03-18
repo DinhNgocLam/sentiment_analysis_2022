@@ -13,8 +13,7 @@ import zipfile
 from zipfile import ZipFile
 from sklearn.ensemble import ExtraTreesClassifier
 
-zf = zipfile.ZipFile('D:\LDS0\Week 3\sentiment_analysis.zip')
-# zf1 = zipfile.ZipFile('D:\LDS0\Week 3\pickle_file.zip')
+zf = zipfile.ZipFile('sentiment_analysis.zip')
 
 df_self = pd.read_csv(zf.open('data_Foody_HCM_Q13510.csv'))
 df_self = df_self.drop(['Unnamed: 0', 'location', 'url'], axis=1)
@@ -39,14 +38,6 @@ models_rec = models_rec.sort_values(by=['Accuracy'], ascending=False)
 
 models_6 = pd.read_csv(zf.open('models_6.csv'))
 models_6 = models_6.sort_values(by=['Test Score'], ascending=False)
-
-# df_resample = pd.read_csv(zf.open('df_resample.csv'))
-# df_new = df_resample.drop('Unnamed: 0', axis=1)
-# X_res = df_new.drop('group', axis=1)
-# y_res = df_new['group']
-# X_train, X_test, y_train, y_test = train_test_split(X_res, y_res, test_size=0.3, random_state=42)
-# tree = ExtraTreesClassifier(criterion='entropy', max_features='sqrt', splitter='random')
-# tree.fit(X_train, y_train)
 
 pkl_filename = "sentiment_classification_demo.pkl"
 with open(pkl_filename, 'rb') as file:  
